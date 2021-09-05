@@ -30,7 +30,7 @@ print("---------------------------------------")
 
 year = get_valid_int("Nhập số năm muốn check nhuận hay k: ")
 
-if year%400 == 0 or (year%4 == 0 and year%100 != 100):
+if year%400 == 0 or (year%4 == 0 and year%100 != 0):
     print("Năm nhuận đấy!!!")
 else:
     print("Không phải năm nhuận.")    
