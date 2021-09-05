@@ -1,0 +1,36 @@
+body {
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 50px;
+  background-color: beige;
+  text-align: justify;
+}
+html {
+  background-image: url(https://seogroup.vn/wp-content/uploads/2020/05/xu-huong-thiet-ke-website-03.gif);
+  margin: 3px;
+}
+h1 {
+  margin-top: -20px;
+  text-align: left;
+  text-shadow: lightgray 2px 2px;
+}
+img {
+  width: 500px;
+  text-align: right;
+  size: inherit;
+}
+
+.movie_soundtrack {
+  font-family: "Lucida Sans";
+}
+
+.header_menu {
+  list-style: none;
+  display: flex;
+  text-decoration: none;
+  margin-right: 15px;
+  color: white;
+  background-color: rgb(241, 145, 28);
+  padding: 3px;
+}
+
