@@ -110,18 +110,23 @@ print("\nBài 2--Tạo dict với key trong list + value là count số lần l�
 # Trả ra
 # {10: 1, 21: 2, 40: 3, 52: 2, 1: 2, 2: 4, 11: 4, 25: 1, 24: 2, 60: 1}
 
-my_list = [10, 21, 21, 40, 40, 52, 52, 1, 1, 2,
-    2, 2, 2, 11, 11, 11, 11, 25, 24, 24, 60, 40]
-my_dict = {}
-print("my_list = ", my_list)
+my_list = [10, 21, 21, 40, 40, 52, 52, 1, 1, 2, 2, 2, 2, 11, 11, 11, 11, 25, 24, 24, 60, 40]
+count={}
 
-my_dict[my_list[0]] = 1
-for i in range(1, len(my_list)-1):
-    if my_list[i] == my_list[i-1]:
-        my_dict[my_list[i-1]] += 1
+for i in my_list:
+    if i in count:
+        count[i] +=1
     else:
-        my_dict[my_list[i]] = 1
-print("convert to dict = ", my_dict)
+        count[i] = 1
+print(count)
+
+# ----cách 2
+d={}
+
+for i in my_list:
+    my_list.count(i)
+    d[i] = my_list.count(i)
+print(d)
 
 print("\nBài 3--Count tới xmas 2021 5 lần, mỗi lần cách 5s--------------------")
 # Viết chương trình in ra thời gian đếm ngược đến XMas 2021 sau mỗi khoảng thời gian nhất định.
