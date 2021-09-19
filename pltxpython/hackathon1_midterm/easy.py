@@ -36,4 +36,4 @@ def alpha_num(sentence):
     # return result
 
 # day_diff("19/12/2021", "2021-17-09")
-# alpha_num("Emma25 is Data scientist50 and AI Expert 84pltx 45xxx67 ab3de5f")
+alpha_num("Emma25 is Data scientist50 and AI Expert 84pltx 45xxx67 ab3de5f")
