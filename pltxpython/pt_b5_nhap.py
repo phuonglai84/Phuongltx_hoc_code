@@ -32,12 +32,11 @@ def print_words(filename):
     for j in d.keys():
         word_count = str(j) + "\t" + str(d[j]) + "\n" + word_count
         # word_count_reverse = word_count[::-1]
-    # print(word_count)
+    print(word_count)
     return word_count
 
 filename = "small.docx"
-result1 = print_words(filename)
-print(result1)
+print_words(filename)
 
 
 def print_top(filename):
@@ -68,8 +67,7 @@ def print_top(filename):
     word_top = ""
     for j in d_valuetop:
         word_top = str(j[0]) + "\t" + str(j[1]) + "\n" + word_top
-    # print(word_top)
+    print(word_top)
     return word_top
 
-result2 = print_top(filename)
-print(result2)
+print_top(filename)

@@ -29,7 +29,7 @@ print_words() và print_top().
 """
 
 import sys
-
+print("Bài 3: Đếm từ")
 # +++your code here+++
 def print_words(filename):
     from docx import Document
@@ -40,22 +40,22 @@ def print_words(filename):
         para_text = para.text.lower()
         word = para_text.split()
         allText.extend(word)
-        allText2 = sorted(allText)
+        allText2 = sorted(allText, reverse=True)    # sort ngược, để khi chạy for key lấy ra value tạo ra string word_count đúng chiều xuôi
 
     # print(allText)
     # print(sorted(allText))
-
     d={}
     for i in allText2:
         allText2.count(i)
         d[i] = allText2.count(i)
-    print(d)
-
+    d_top = sorted(d.items(), key = lambda x: x[1], reverse=True )
+    # print(d)
+    # print(d_top)
+    word_count = ""
     for j in d.keys():
-        # print(j, "", d[j])
-        # print(str(j) + " " + str(d[j]))
-        word_count = str(j) + " " + str(d[j])
-        print(word_count)
+        word_count = str(j) + "\t" + str(d[j]) + "\n" + word_count
+        # word_count_reverse = word_count[::-1]
+    print(word_count)
     return word_count
 
 def print_top(filename):
@@ -86,7 +86,7 @@ def print_top(filename):
     word_top = ""
     for j in d_valuetop:
         word_top = str(j[0]) + "\t" + str(j[1]) + "\n" + word_top
-    # print(word_top)
+    print(word_top)
     return word_top
 
 ###
@@ -111,4 +111,17 @@ def main():
 if __name__ == '__main__':
   main()
 
-filename = "small.docx"
+# Điểm thi học kỳ của sinh viên được lưu ở định dạng 1 tuple có 3 phần tử (m1, m2, e) gồm:
+# m1 = midterm1
+# m2 = midterm2
+# e = endterm
+# Cho một list gồm danh sách điểm thi của sinh viên 1 lớp. 
+# Viết chương trình Python để sắp xếp danh sách trước theo thứ tự tăng dần theo phần tử cuối cùng trong mỗi tuple 
+# (sắp xếp theo điểm cuối kỳ - endterm tăng dần).
+# vd sort_list_last([(1, 2, 5), (9, 1, 2), (6, 4, 4), (3, 2, 3), (10, 2, 1)]) == [(10, 2, 1), (9, 1, 2), (3, 2, 3), (6, 4, 4), (1, 2, 5)]
+print("Bài 2: Sắp xếp điểm thi")
+score_list = [(1, 2, 5), (9, 1, 2), (6, 4, 4), (3, 2, 3), (10, 2, 1)]
+
+score_list_sorted = sorted(score_list)
+print(score_list_sorted)
+
