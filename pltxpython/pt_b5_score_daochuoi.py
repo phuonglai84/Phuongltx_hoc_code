@@ -24,6 +24,8 @@ A = "tHE fOX iS cOMING fOR tHE cHICKEN"
 
 def string_revert(A):
     B = A.swapcase()
-    print(A, "==", B)
-    return B
+    C = B.split()[::-1]
+    D = " ".join(C)
+    print(A, "==", D)
+    return C
 string_revert(A)
