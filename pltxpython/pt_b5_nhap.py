@@ -35,14 +35,11 @@ def print_words(filename):
     print(word_count)
     return word_count
 
-filename = "small.docx"
-print_words(filename)
-
-
 def print_top(filename):
     from docx import Document
 
     document = Document('d:\\Learning\\Python\\Phuongltx_hoc_code\\pltxpython/'+filename)
+    # print(type(document))
     allText = []
     for para in document.paragraphs:
         para_text = para.text.lower()
@@ -70,9 +67,9 @@ def print_top(filename):
     print(word_top)
     return word_top
 
+filename = "small.docx"
+print_words(filename)
 print_top(filename)
 
-import pt_b5_wordcount
-print("Name khi import:"+ pt_b5_wordcount.__name__)
-pt_b5_wordcount.print_words()
+
 
