@@ -55,11 +55,15 @@ import re
 filename = "pt_b6_place_code.google.com"
 host = "code.google.com"
 
-file_open = open(filename, encoding='utf-8-sig').read()
-path_list = re.findall("GET(.*jpg)", file_open)
-# print(path_list)
+file_open = open(filename, encoding='utf-8-sig')
+path_list = re.findall("GET (.*jpg)", file_open.read())
+# 10.254.254.138 - - [06/Aug/2007:00:06:15 -0700] "GET /edu/languages/google-python-class/images/puzzle/p-bfhb-baae.jpg 
+# HTTP/1.0" 302 415 "-" "googlebot-mscrawl-moma (enterprise; bar-XYZ; foo123@google.com,foo123@google.com,foo123@google.com,foo123@google.com)"
+print(path_list)
 path_set = set(path_list)
 i = 0
 for path in path_set:
     i += 1
-    print(f"{i}. {host}{path.strip()}")
+    print(f"{i}. {host}{path}")
+
+file_open.close()       # open xong thì close nó đi cho nhẹ
