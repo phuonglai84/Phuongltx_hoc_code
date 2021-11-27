@@ -1,0 +1,110 @@
+#Tạo class Fraction (phân số)
+class Fraction:
+
+    def __init__(self, nr, dr):
+        if dr == 0:
+            raise ZeroDivisionError("Mẫu số phải lớn hơn 0")
+        if dr < 0:
+            self.nr = -1*nr
+            self.dr = -1*dr
+        else: 
+            self._nr = nr
+            self._dr = dr
+        self.reduce()
+
+        
+    @property
+    def nr(self):
+        return self._nr
+
+    @nr.setter
+    def nr(self, nr):
+        self._nr = nr
+       
+    @property
+    def dr(self):
+        return self._dr
+
+    @dr.setter
+    def dr(self, dr):
+        self._dr = dr
+
+
+    def __str__(self):
+        if self.nr == 0:
+            return "0"
+        else:
+            if self.dr == 1:
+                return str(self.nr)
+            else:
+                return f"{self.nr}/{self.dr}"
+
+    def hcf(self):
+        '''Tìm ước chung lớn nhất của tử số và mẫu số'''
+        nr = self.nr
+        dr = self.dr
+        if dr < 0:
+            dr = dr*-1
+        if nr < 0:
+            nr = nr*-1
+        if dr == 0 or nr == 0:
+            return dr + nr
+        else:
+            while(nr != dr):
+                if(nr > dr):
+                    nr -= dr
+                else:
+                    dr -= nr
+            return nr
+
+    
+    def reduce(self):
+
+        re = self.hcf()
+        self.dr = int(self.dr/re)
+        self.nr = int(self.nr/re)
+
+        
+
+    def __add__(self,other):
+        if type(other) == int or type(other) == float:
+            return Fraction(self.nr + other * self.dr, self.dr)
+        else: 
+            nr = self.nr * other.dr + self.dr * other.nr
+            dr = self.dr * other.dr
+            return Fraction(nr,dr)
+ 
+    def __sub__(self, other):
+        if type(other) == int or type(other) == float:
+            other = Fraction(other * self.dr, self.dr)
+
+        return Fraction((self.nr * other.dr) - (other.nr * self.dr), self.dr * other.dr)
+
+    def __mul__(self, other):
+        if type(other) == int or type(other) == float:
+            other = Fraction(other * self.dr, self.dr)
+
+        return Fraction(self.nr * other.nr, self.dr * other.dr)
+
+    def __truediv__(self, other):
+        if type(other) == int or type(other) == float:
+            other = Fraction(other * self.dr, self.dr)
+
+        return Fraction(self.nr * other.dr, other.nr * self.dr)
+
+
+fr = Fraction(1, 2)
+other = Fraction(4, -3)
+
+print(fr + other)
+print(fr - other)
+print(fr * other)
+print(fr / other)
+
+print()
+
+fr = Fraction(1, 2)
+print(fr + 3)
+print(fr - 7)
+print(fr * 5)
+print(fr / 2)
